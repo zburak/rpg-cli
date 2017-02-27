@@ -3,6 +3,7 @@ package net.zburak.rpg.view.impl;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
@@ -31,25 +32,28 @@ public class CharacterCreationScreenTest {
   @Mock
   private RpgContext rpgContext;
 
+  @Mock
+  Player mockPlayer;
+
   @InjectMocks
   private CharacterCreationScreen characterCreationScreen;
 
   @Before
   public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
-    Player mockPlayer = mock(Player.class);
-    doReturn("testName").when(mockPlayer).getName();
     Story mockStory = Mockito.mock(Story.class);
     doReturn(mockStory).when(rpgContext).getStory();
     Map<String, Player> playerMap = new HashMap<>();
     playerMap.put("testName", mockPlayer);
     doReturn(playerMap).when(mockStory).getAvailablePlayers();
+    doReturn(mockPlayer).when(rpgContext).getSelectedPlayer();
   }
 
   @Test
   public void getNextScreen() throws Exception {
-    Screen s = characterCreationScreen.getNextScreen("TEST");
+    Screen s = characterCreationScreen.getNextScreen("testName");
     assertTrue(s instanceof PlayScreen);
+    assertTrue(rpgContext.getSelectedPlayer().equals(mockPlayer));
   }
 
   @Test
