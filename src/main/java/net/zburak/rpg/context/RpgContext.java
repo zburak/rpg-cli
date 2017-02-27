@@ -1,5 +1,6 @@
 package net.zburak.rpg.context;
 
+import net.zburak.rpg.model.Player;
 import net.zburak.rpg.model.Story;
 import net.zburak.rpg.service.StoryService;
 
@@ -11,5 +12,9 @@ public interface RpgContext {
   public void setStoryService(StoryService storyService);
 
   public Story getStory();
+
+  public void setSelectedPlayer(Player player);
+
+  public Player getSelectedPlayer();
 
 }

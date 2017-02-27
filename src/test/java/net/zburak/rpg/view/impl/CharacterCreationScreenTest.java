@@ -6,7 +6,9 @@ import static org.mockito.Mockito.mock;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import net.zburak.rpg.context.RpgContext;
 import net.zburak.rpg.model.Player;
 import net.zburak.rpg.model.Story;
@@ -39,7 +41,9 @@ public class CharacterCreationScreenTest {
     doReturn("testName").when(mockPlayer).getName();
     Story mockStory = Mockito.mock(Story.class);
     doReturn(mockStory).when(rpgContext).getStory();
-    doReturn(Arrays.asList(mockPlayer)).when(mockStory).getAvailablePlayers();
+    Map<String, Player> playerMap = new HashMap<>();
+    playerMap.put("testName", mockPlayer);
+    doReturn(playerMap).when(mockStory).getAvailablePlayers();
   }
 
   @Test

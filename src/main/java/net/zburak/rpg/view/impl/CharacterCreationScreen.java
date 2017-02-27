@@ -3,7 +3,6 @@ package net.zburak.rpg.view.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 import net.zburak.rpg.context.RpgContext;
-import net.zburak.rpg.context.RpgContextFactory;
 import net.zburak.rpg.model.Story;
 import net.zburak.rpg.view.AbstractScreen;
 import net.zburak.rpg.view.Screen;
@@ -26,6 +25,7 @@ public class CharacterCreationScreen extends AbstractScreen {
 
   @Override
   protected Screen getNextScreen(String command) {
+    rpgContext.setSelectedPlayer(rpgContext.getStory().getAvailablePlayers().get(command));
     return new PlayScreen();
   }
 
@@ -41,6 +41,6 @@ public class CharacterCreationScreen extends AbstractScreen {
 
   private List<String> getAvailableCharacters() {
     Story story = rpgContext.getStory();
-    return story.getAvailablePlayers().stream().map(p->p.getName()).collect(Collectors.toList());
+    return story.getAvailablePlayers().keySet().stream().collect(Collectors.toList());
   }
 }

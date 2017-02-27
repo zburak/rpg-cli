@@ -2,6 +2,7 @@ package net.zburak.rpg.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ import lombok.Data;
 public class Story implements Serializable {
 
   private StoryWorld world;
-  private List<Player> availablePlayers;
+  private Map<String, Player> availablePlayers;
   private List<Npc> availableNpcs;
 
 }

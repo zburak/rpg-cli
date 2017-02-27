@@ -48,7 +48,9 @@ public class DefaultStoryService implements StoryService {
 
     StoryWorld storyWorld = new StoryWorld(new int[10][10]);
     storyWorld.setNpcLocationMap(map);
-    Story story = Story.builder().availableNpcs(Arrays.asList(monster)).availablePlayers(Arrays.asList(humanPlayer))
+    Map<String, Player> availablePlayers = new HashMap<>();
+    availablePlayers.put(humanPlayer.getName(), humanPlayer);
+    Story story = Story.builder().availableNpcs(Arrays.asList(monster)).availablePlayers(availablePlayers)
         .world(storyWorld).build();
     return story;
   }
