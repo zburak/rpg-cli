@@ -2,6 +2,8 @@ package net.zburak.rpg.view;
 
 import java.util.List;
 import java.util.Scanner;
+import net.zburak.rpg.context.RpgContext;
+import net.zburak.rpg.view.impl.IntroScreen;
 
 /**
  * Created by buraq on 26.02.2017.
@@ -10,9 +12,9 @@ public abstract class AbstractScreen implements Screen {
 
   protected Scanner scanner;
 
-  public AbstractScreen() {
+  protected RpgContext rpgContext;
 
-  }
+  private final static String SAVE = "S";
 
   public void showScreen() {
     printOptions();
@@ -23,6 +25,12 @@ public abstract class AbstractScreen implements Screen {
     do {
       command = getInput();
       command = command.trim();
+
+      if (SAVE.equals(command)) {
+
+        return new IntroScreen();
+      }
+
       if (command != null && !command.equals("") && !getCommandList().contains(command)) {
         System.out.println("Please enter a valid command");
       } else {
@@ -37,7 +45,7 @@ public abstract class AbstractScreen implements Screen {
 
   protected abstract void printOptions();
 
-  private String getInput(){
+  private String getInput() {
     if (scanner == null) {
       scanner = new Scanner(System.in);
     }

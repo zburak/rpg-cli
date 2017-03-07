@@ -17,4 +17,6 @@ public interface RpgContext {
 
   public Player getSelectedPlayer();
 
+
+
 }

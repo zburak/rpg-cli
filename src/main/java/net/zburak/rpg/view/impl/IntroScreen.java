@@ -13,13 +13,11 @@ import net.zburak.rpg.view.Screen;
  */
 public class IntroScreen extends AbstractScreen {
 
-  public IntroScreen() {
-    super();
-  }
+  private static final String BEGIN = "B";
 
   @Override
   protected Screen getNextScreen(String command) {
-    if("S".equals(command)){
+    if(BEGIN.equals(command)){
       return new CharacterCreationScreen(RpgContextFactory.getInstance().getRpgContext());
     } else{
       return null;
@@ -27,11 +25,11 @@ public class IntroScreen extends AbstractScreen {
   }
 
   protected List<String> getCommandList() {
-    return Arrays.asList("S", "L", "E");
+    return Arrays.asList("B", "L", "E");
   }
 
   protected void printOptions() {
-    System.out.println("S - Start");
+    System.out.println("B - Begin");
     System.out.println("L - Load");
     System.out.println("E - Exit");
   }

@@ -1,5 +1,6 @@
 package net.zburak.rpg.service.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class DefaultStoryService implements StoryService {
     monster.setName("hede");
     monster.setCurrentLocation(new Location(2,2));
 
-    Player humanPlayer = Player.builder().cash(500).raceName("Human").build();
+    Player humanPlayer = Player.builder().cash(500).raceName("Human").inventory(new ArrayList<>()).build();
     humanPlayer.setCurrentLocation(new Location(0, 0));
     humanPlayer.setName("Burak");
     humanPlayer.setCharacterStat(CharacterStat.builder().attack(20).currentExperienceLevel(3).defence(5).dexterity(3)

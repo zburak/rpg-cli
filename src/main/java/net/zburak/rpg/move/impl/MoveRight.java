@@ -6,21 +6,22 @@ import net.zburak.rpg.move.Move;
 /**
  * Created by buraq on 28.02.2017.
  */
-public class MoveDown implements Move {
+public class MoveRight implements Move {
 
   private int maxLength;
 
-  public MoveDown(int maxLength) {
+  public MoveRight(int maxLength) {
     this.maxLength = maxLength;
   }
 
   @Override
   public Location move(Location currentLocation) {
-    int x = currentLocation.getY();
-    if (x - 1 > maxLength || x < 0) {
+    int x = currentLocation.getX();
+    if (x + 1 > maxLength) {
       System.out.println("Invalid Location!!\n");
       return currentLocation;
     }
-    return new Location(x-1, currentLocation.getY());
+    return new Location(x + 1, currentLocation.getY());
+
   }
 }

@@ -12,7 +12,7 @@ import net.zburak.rpg.view.Screen;
  */
 public class CharacterCreationScreen extends AbstractScreen {
 
-  private RpgContext rpgContext;
+
 
   public CharacterCreationScreen() {
     super();
@@ -26,7 +26,7 @@ public class CharacterCreationScreen extends AbstractScreen {
   @Override
   protected Screen getNextScreen(String command) {
     rpgContext.setSelectedPlayer(rpgContext.getStory().getAvailablePlayers().get(command));
-    return new PlayScreen();
+    return new PlayScreen(rpgContext);
   }
 
   protected List<String> getCommandList() {
