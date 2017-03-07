@@ -10,6 +10,7 @@ import java.util.Map;
 import net.zburak.rpg.context.RpgContext;
 import net.zburak.rpg.model.Player;
 import net.zburak.rpg.model.Story;
+import net.zburak.rpg.model.StoryWorld;
 import net.zburak.rpg.view.Screen;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +45,9 @@ public class CharacterCreationScreenTest {
     playerMap.put("testName", mockPlayer);
     doReturn(playerMap).when(mockStory).getAvailablePlayers();
     doReturn(mockPlayer).when(rpgContext).getSelectedPlayer();
+    StoryWorld mockWorld = Mockito.mock(StoryWorld.class);
+    doReturn(mockWorld).when(mockStory).getWorld();
+    doReturn(10).when(mockWorld).getWorldSize();
   }
 
   @Test
