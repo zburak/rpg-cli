@@ -12,12 +12,6 @@ import net.zburak.rpg.view.Screen;
  */
 public class CharacterCreationScreen extends AbstractScreen {
 
-
-
-  public CharacterCreationScreen() {
-    super();
-  }
-
   public CharacterCreationScreen(RpgContext rpgContext) {
     super();
     this.rpgContext = rpgContext;

@@ -30,6 +30,7 @@ public class FightScreen extends AbstractScreen {
 
     if (TELEPORT.equals(command)) {
       rpgContext.getSelectedPlayer().setCurrentLocation(new Location(0, 0));
+      System.out.println("Teleported to the start point");
       return new PlayScreen(rpgContext);
     } else {
 
@@ -50,6 +51,7 @@ public class FightScreen extends AbstractScreen {
     System.out.println("Monster!!! Choose your destiny!!\n\n");
     System.out.println("F. Fight!!");
     System.out.println("T. Teleport");
+    System.out.println("S. Save");
   }
 
   public FightService getFightService() {

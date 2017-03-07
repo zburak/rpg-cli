@@ -1,5 +1,6 @@
 package net.zburak.rpg.service;
 
+import java.io.Serializable;
 import net.zburak.rpg.model.Story;
 
 /**
@@ -7,7 +8,7 @@ import net.zburak.rpg.model.Story;
  *
  * Created by buraq on 26.02.2017.
  */
-public interface StoryService {
+public interface StoryService extends Serializable {
 
   /**
    * Generates main story of the game

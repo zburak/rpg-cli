@@ -1,5 +1,6 @@
 package net.zburak.rpg.move;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import net.zburak.rpg.context.RpgContext;
@@ -11,7 +12,7 @@ import net.zburak.rpg.move.impl.MoveUp;
 /**
  * Created by buraq on 28.02.2017.
  */
-public class MoveCommandParser {
+public class MoveCommandParser implements Serializable {
 
   private Map<String, Move> moveMap;
 

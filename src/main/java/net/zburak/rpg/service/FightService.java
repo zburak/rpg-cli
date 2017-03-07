@@ -1,5 +1,6 @@
 package net.zburak.rpg.service;
 
+import java.io.Serializable;
 import net.zburak.rpg.model.CharacterStat;
 import net.zburak.rpg.model.FightStat;
 import net.zburak.rpg.model.Npc;
@@ -11,7 +12,7 @@ import net.zburak.rpg.view.Screen;
  *
  * Created by buraq on 06.03.2017.
  */
-public interface FightService {
+public interface FightService extends Serializable {
 
   Screen fight(Player player, Npc npc);
 

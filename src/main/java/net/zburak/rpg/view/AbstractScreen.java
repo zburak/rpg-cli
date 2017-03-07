@@ -3,6 +3,8 @@ package net.zburak.rpg.view;
 import java.util.List;
 import java.util.Scanner;
 import net.zburak.rpg.context.RpgContext;
+import net.zburak.rpg.service.PersistenceService;
+import net.zburak.rpg.service.impl.DefaultPersistenceService;
 import net.zburak.rpg.view.impl.IntroScreen;
 
 /**
@@ -10,13 +12,18 @@ import net.zburak.rpg.view.impl.IntroScreen;
  */
 public abstract class AbstractScreen implements Screen {
 
-  protected Scanner scanner;
+  protected transient Scanner scanner;
 
   protected RpgContext rpgContext;
+
+  private PersistenceService persistenceService;
 
   private final static String SAVE = "S";
 
   public void showScreen() {
+    if(rpgContext != null){
+      rpgContext.setLastScreen(this);
+    }
     printOptions();
   }
 
@@ -27,7 +34,8 @@ public abstract class AbstractScreen implements Screen {
       command = command.trim();
 
       if (SAVE.equals(command)) {
-
+        persistenceService = new DefaultPersistenceService();
+        persistenceService.saveGame(rpgContext);
         return new IntroScreen();
       }
 
@@ -51,6 +59,5 @@ public abstract class AbstractScreen implements Screen {
     }
     return scanner.next();
   }
-
 
 }

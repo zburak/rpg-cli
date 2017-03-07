@@ -51,5 +51,6 @@ public class PlayScreen extends AbstractScreen {
     System.out.println("D- Move Down");
     System.out.println("R- Move Right");
     System.out.println("L- Move Left");
+    System.out.println("S- Save");
   }
 }

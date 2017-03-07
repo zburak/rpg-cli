@@ -102,12 +102,12 @@ public class DefaultFightServiceTest {
     doReturn(100).when(mockPlayer).getCurrentHealthLevel();
     doReturn(100).when(mockNpc).getCurrentHealthLevel();
 
-    doReturn(100).when(mockNpc).getExpReward();
-    doReturn(0).when(mockPlayerStat).getCurrentExperienceLevel();
-    doReturn(2).doReturn(3).when(mockPlayer).getCharacterLevel();
+//    doReturn(100).when(mockNpc).getExpReward();
+//    doReturn(0).when(mockPlayerStat).getCurrentExperienceLevel();
+//    doReturn(2).doReturn(3).when(mockPlayer).getCharacterLevel();
 
-    doNothing().when(mockPlayer).setCharacterLevel(anyInt());
-    doNothing().when(mockPlayerStat).setCurrentExperienceLevel(anyInt());
+//    doNothing().when(mockPlayer).setCharacterLevel(anyInt());
+//    doNothing().when(mockPlayerStat).setCurrentExperienceLevel(anyInt());
 
     Screen fight = fightService.fight(mockPlayer, mockNpc);
     assertTrue(fight instanceof FightScreen);

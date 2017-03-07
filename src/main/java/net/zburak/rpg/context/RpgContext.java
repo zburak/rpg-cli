@@ -1,21 +1,29 @@
 package net.zburak.rpg.context;
 
+import java.io.Serializable;
 import net.zburak.rpg.model.Player;
 import net.zburak.rpg.model.Story;
 import net.zburak.rpg.service.StoryService;
+import net.zburak.rpg.view.Screen;
 
 /**
  * Created by buraq on 26.02.2017.
  */
-public interface RpgContext {
+public interface RpgContext extends Serializable {
 
-  public void setStoryService(StoryService storyService);
+  void setStoryService(StoryService storyService);
 
-  public Story getStory();
+  Story getStory();
 
-  public void setSelectedPlayer(Player player);
+  void setSelectedPlayer(Player player);
 
-  public Player getSelectedPlayer();
+  Player getSelectedPlayer();
+
+  Screen getLastScreen();
+
+  void setLastScreen(Screen screen);
+
+
 
 
 

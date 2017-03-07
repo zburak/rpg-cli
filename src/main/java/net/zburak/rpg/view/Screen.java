@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * Created by buraq on 25.02.2017.
  */
-public interface Screen {
+public interface Screen extends Serializable {
 
   /**
    * Displays the screen
