@@ -67,7 +67,7 @@ public class DefaultFightService implements FightService {
 
       //Then create damage on Player if npc still alive
       int damageOnPlayer = npcAttackPower - player.getCharacterStat().getDefence();
-      if (damageOnPlayer > player.getCurrentHealthLevel()) {
+      if (damageOnPlayer > player.getCurrentHealthLevel() || player.getCurrentHealthLevel() <= 0) {
         System.out.println("YOU LOST!!!");
         System.out.println("See you in another life brotha!!");
         System.exit(1);

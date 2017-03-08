@@ -16,7 +16,7 @@ public class MoveLeft implements Move {
 
   @Override
   public Location move(Location currentLocation) {
-    int x = currentLocation.getY();
+    int x = currentLocation.getX();
     if (x - 1 > maxLength || x < 0) {
       System.out.println("Invalid Location!!\n");
       return currentLocation;
